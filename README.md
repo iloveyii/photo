@@ -22,5 +22,5 @@
 
 ## Tips
 
-- Tilde(~) character: OPTION + ^ and then space
-- 
+- Tilde(~) character: `OPTION + ^` and then space
+- Credits: <https://www.youtube.com/watch?v=QuvS_VLbGko>
