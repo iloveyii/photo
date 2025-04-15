@@ -1,4 +1,4 @@
-package com.learn.photo;
+package com.learn.photo.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;

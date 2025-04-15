@@ -1,4 +1,6 @@
-package com.learn.photo;
+package com.learn.photo.web;
+import com.learn.photo.service.PhotoService;
+import com.learn.photo.model.Photo;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,7 +13,7 @@ import java.util.*;
 @RestController
 public class PhotoController {
 
-    private  final  PhotoService photoService;
+    private  final PhotoService photoService;
 
     public PhotoController(PhotoService photoService) {
         this.photoService = photoService;

@@ -1,6 +1,8 @@
-package com.learn.photo;
+package com.learn.photo.web;
 
 
+import com.learn.photo.service.PhotoService;
+import com.learn.photo.model.Photo;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 public class DownloadController {
 
-    private  final  PhotoService photoService;
+    private  final PhotoService photoService;
 
     public DownloadController(PhotoService photoService) {
         this.photoService = photoService;
