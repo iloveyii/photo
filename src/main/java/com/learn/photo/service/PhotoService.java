@@ -2,39 +2,41 @@ package com.learn.photo.service;
 
 
 import com.learn.photo.model.Photo;
+import com.learn.photo.repository.PhotoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 @Service
 public class PhotoService {
 
-    private Map<String, Photo> db = new HashMap<>(){{
-        put("1", new Photo("1", "hello.jpg"));
-    }};
+    private final PhotoRepository photoRepository;
 
-    public Collection<Photo> get() {
-        return db.values();
+    public PhotoService(PhotoRepository photoRepository) {
+        this.photoRepository = photoRepository;
     }
 
-    public Photo get(String id) {
-        return db.get(id);
+    public Iterable<Photo> get() {
+        return photoRepository.findAll();
     }
 
-    public Photo remove(String id) {
-        return db.remove(id);
+    public Photo get(Integer id) {
+        return photoRepository.findById(id).orElse(null);
+    }
+
+    public void remove(Integer id) {
+
+        photoRepository.deleteById(id);
     }
 
     public Photo create(String fileName, String contentType, byte[] data) {
         Photo photo = new Photo();
         photo.setFileName(fileName);
-        photo.setId(UUID.randomUUID().toString());
         photo.setData(data);
         photo.setContentType(contentType);
-        db.put(photo.getId(), photo);
+        photoRepository.save(photo);
         return photo;
     }
 }

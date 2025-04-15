@@ -25,27 +25,25 @@ public class PhotoController {
     }
 
     @GetMapping("/photo")
-    public Collection<Photo> get() {
+    public Iterable<Photo> get() {
         return photoService.get();
     }
 
     @GetMapping("/photo/{id}")
-    public Photo get(@PathVariable String id) {
+    public Photo get(@PathVariable Integer id) {
         Photo photo = photoService.get(id);
         if(photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return  photo;
     }
 
     @DeleteMapping("/photo/{id}")
-    public void remove(@PathVariable String id) {
-        Photo photo = photoService.remove(id);
-        if(photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    public void remove(@PathVariable Integer id) {
+        photoService.remove(id);
     }
 
     @PostMapping("/photo")
     public Photo create(@RequestBody @Valid Photo photo) {
-        photo.setId(UUID.randomUUID().toString());
-        photoService.create(photo.getId(), photo.getContentType(), photo.getData());
+        photoService.create(photo.getFileName(), photo.getContentType(), photo.getData());
         return photo;
     }
 

@@ -3,10 +3,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
-
+@Table("PHOTO")
 public class Photo {
-    private String id;
+
+    @Id
+    private Integer id;
 
     @NotEmpty(message = "File name cannot be empty")
     @NotNull
@@ -28,16 +32,16 @@ public class Photo {
     public Photo() {
     }
 
-    public Photo(String id, String fileName) {
+    public Photo(Integer id, String fileName) {
         this.id = id;
         this.fileName = fileName;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
