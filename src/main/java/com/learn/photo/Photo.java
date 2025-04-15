@@ -15,6 +15,16 @@ public class Photo {
     @JsonIgnore
     private byte[] data;
 
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    private  String contentType;
+
     public Photo() {
     }
 

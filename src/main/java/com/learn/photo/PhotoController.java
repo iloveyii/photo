@@ -11,9 +11,11 @@ import java.util.*;
 @RestController
 public class PhotoController {
 
-    private Map<String, Photo> db = new HashMap<>(){{
-        put("1", new Photo("1", "hello.jpg"));
-    }};
+    private  final  PhotoService photoService;
+
+    public PhotoController(PhotoService photoService) {
+        this.photoService = photoService;
+    }
 
     @GetMapping("/")
     public String hello() {
@@ -22,35 +24,31 @@ public class PhotoController {
 
     @GetMapping("/photo")
     public Collection<Photo> get() {
-        return db.values();
+        return photoService.get();
     }
 
     @GetMapping("/photo/{id}")
     public Photo get(@PathVariable String id) {
-        Photo photo = db.get(id);
+        Photo photo = photoService.get(id);
         if(photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return  photo;
     }
 
     @DeleteMapping("/photo/{id}")
     public void remove(@PathVariable String id) {
-        Photo photo = db.remove(id);
+        Photo photo = photoService.remove(id);
         if(photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping("/photo")
     public Photo create(@RequestBody @Valid Photo photo) {
         photo.setId(UUID.randomUUID().toString());
-        db.put(photo.getId(), photo);
+        photoService.create(photo.getId(), photo.getContentType(), photo.getData());
         return photo;
     }
 
     @PostMapping("/fileupload")
     public Photo fileupload(@RequestPart("data") MultipartFile file) throws IOException {
-        Photo photo = new Photo();
-        photo.setId(UUID.randomUUID().toString());
-        photo.setData(file.getBytes());
-        db.put(photo.getId(), photo);
-        return photo;
+        return photoService.create(file.getOriginalFilename(), file.getContentType(), file.getBytes());
     }
 }
