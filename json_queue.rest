@@ -1,0 +1,18 @@
+## Send Post
+POST http://localhost:8080/api/v1/produce/json
+Content-Type: application/json
+
+{
+  "id": "1",
+  "firstName": "Ali",
+  "lastName": "H"
+}
+
+
+
+
+##################
+
+## Get request
+GET http://localhost:8080/api/v1/produce/hithere
+

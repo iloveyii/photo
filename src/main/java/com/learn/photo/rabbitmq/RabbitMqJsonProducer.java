@@ -1,5 +1,6 @@
 package com.learn.photo.rabbitmq;
 
+import com.learn.photo.dto.UserDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -23,8 +24,8 @@ public class RabbitMqJsonProducer {
     }
 
     // Send message
-    public void sendMessage(String message) {
-        LOGGER.info(String.format("Message sent -> %s", message));
-        rabbitTemplate.convertAndSend(exchange, routingKeyJson, message);
+    public void sendMessage(UserDto userDto) {
+        LOGGER.info(String.format("Message sent -> %s", userDto.toString()));
+        rabbitTemplate.convertAndSend(exchange, routingKeyJson, userDto);
     }
 }
