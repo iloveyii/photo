@@ -23,7 +23,7 @@
 ## RabbitMQ
 
 - Docker pull `docker pull rabbitmq:4.0.9-management`
-- Docker run `docker run --rm -ti -p 15672:15672 rabbitmq:4.0.9-management`
+- Docker run `docker run --rm -ti -p 15672:15672 -p 5672:5672 rabbitmq:4.0.9-management`
 - Browse to: <http://localhost:15672/> with username and password: `guest`
 
 

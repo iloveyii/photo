@@ -30,6 +30,7 @@ public class RabbitMqConfig {
     }
 
     // Bean for binding key
+    @Bean
     public Binding binding() {
         return BindingBuilder
                 .bind(queue())
