@@ -20,6 +20,13 @@
 - <http://localhost:8080/h2-console>
   - With JDBC URL: <jdbc:h2:~/dbphoto> and blank username and password
 
+## RabbitMQ
+
+- Docker pull `docker pull rabbitmq:4.0.9-management`
+- Docker run `docker run --rm -ti -p 15672:15672 rabbitmq:4.0.9-management`
+- Browse to: <http://localhost:15672/> with username and password: `guest`
+
+
 ## Tips
 
 - Tilde(~) character: `OPTION + ^` and then space
