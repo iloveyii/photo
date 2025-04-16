@@ -26,6 +26,11 @@
 - Docker run `docker run --rm -ti -p 15672:15672 -p 5672:5672 rabbitmq:4.0.9-management`
 - Browse to: <http://localhost:15672/> with username and password: `guest`
 
+## Languages
+
+- Add config: LocaleConfig
+- Add messages.properties and related files in resources(bundle) with keys
+- Add key in thymeleaf as `th:text="#{page.title}"`
 
 ## Tips
 
