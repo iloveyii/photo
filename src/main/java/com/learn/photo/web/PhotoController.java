@@ -19,11 +19,6 @@ public class PhotoController {
         this.photoService = photoService;
     }
 
-    @GetMapping("/")
-    public String hello() {
-        return "Hello world";
-    }
-
     @GetMapping("/photo")
     public Iterable<Photo> get() {
         return photoService.get();
