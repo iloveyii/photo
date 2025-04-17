@@ -26,24 +26,12 @@ public class SiteController {
     public String index(Model model,
                         @RequestParam(name = "lang", required = false) String lang,
                         HttpServletRequest request) {
-        //if (lang != null) {
-            // Locale locale = new Locale(lang);
-            // model.addAttribute("currentLocale", locale);
-        //}
-
-        // Locale locale = RequestContextUtils.getLocale(request);
-        // model.addAttribute("currentLocale", locale);
-
-        // List<String> messages = new ArrayList<>();
-        // Add any messages you want to display
-        // messages.add("Welcome to our application!");
-        // model.addAttribute("messages", messages);
         return "index";
     }
 
     @GetMapping("/about")
     public String about() {
-        return "about";
+        return "pages/about";
     }
 
     @GetMapping("/contact")
