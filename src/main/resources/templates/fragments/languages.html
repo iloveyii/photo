@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<body>
+<main class="container my-5">
+    <div  th:fragment="languages" class="d-flex align-items-center gap-2">
+      <a href="?lang=en" class="text-decoration-none" title="English">
+        <span class="fi fi-gb fis me-1"></span>
+        English
+      </a>
+      <span class="text-muted">|</span>
+
+      <a href="?lang=es" class="text-decoration-none" title="Español">
+        <span class="fi fi-es fis me-1"></span>
+        Español
+      </a>
+      <span class="text-muted">|</span>
+
+      <a href="?lang=fr" class="text-decoration-none" title="Français">
+        <span class="fi fi-fr fis me-1"></span>
+        Français
+      </a>
+      <span class="text-muted">|</span>
+
+      <a href="?lang=ar" class="text-decoration-none" title="العربية">
+        <span class="fi fi-sa fis me-1"></span>
+        العربية
+      </a>
+    </div>
+</main>
+</body>
+</html>
