@@ -36,11 +36,11 @@ public class SiteController {
 
     @GetMapping("/contact")
     public String contact() {
-        return "contact";
+        return "pages/contact";
     }
 
     @GetMapping("/login")
     public String login() {
-        return "login";
+        return "pages/login";
     }
 }
