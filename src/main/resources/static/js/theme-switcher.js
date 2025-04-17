@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('themeToggle');
+    if(!themeToggle) return;
     const htmlElement = document.documentElement;
 
     // Check for saved theme preference or use preferred color scheme
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateToggleIcon(theme) {
         const icon = themeToggle.querySelector('i');
+        if(!icon) return;
         if (theme === 'dark') {
             icon.classList.remove('bi-moon-stars');
             icon.classList.add('bi-sun');
