@@ -3,6 +3,7 @@
 - To learn spring boot
 - H2 database
 - RabbitMQ
+- WebSockets
 
 ## Run from IJ IDE
 
@@ -43,3 +44,5 @@
 
 - Tilde(~) character: `OPTION + ^` and then space
 - Credits: <https://www.youtube.com/watch?v=QuvS_VLbGko>
+- Good design apartments site <https://www.novasol.se/>
+- Job portal <https://www.njp.gov.pk/dashboard.php>
