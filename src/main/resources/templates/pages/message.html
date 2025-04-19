@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+<head>
+  <title>Home</title>
+  <!-- Page-specific CSS -->
+  <link th:href="@{/css/home.css}" rel="stylesheet">
+</head>
+<body>
+<main layout:fragment="content">
+  <div class="content">
+    <div class="jumbotron bg-light p-5 rounded">
+      <h1 class="display-4">Welcome to My App!</h1>
+      <p class="lead">This is a simple Spring Boot application with Thymeleaf layout templates.</p>
+      <hr class="my-4">
+      <p>It uses Bootstrap 5 for styling and layout dialect for template inheritance.</p>
+      <a class="btn btn-primary btn-lg" th:href="@{/about}" role="button">Learn more</a>
+    </div>
+
+    <div class="container mt-5">
+      <h2 class="mb-4">Chat Form</h2>
+      <form>
+        <!-- Name -->
+        <div class="mb-3">
+          <label for="nick-name" class="form-label">Nick Name</label>
+          <input type="text" class="form-control" id="nick-name" placeholder="Enter your nick name...">
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea rows="5" class="form-control" id="message" placeholder="Enter your message here..."></textarea>
+        </div>
+
+        <div class="mb-3">
+          <button class="btn btn-success btn-lg px-5">Send</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</main>
+
+<!-- Page-specific JavaScript -->
+<script layout:fragment="script" th:src="@{/js/home.js}"></script>
+</body>
+</html>
