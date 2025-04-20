@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  app:
+    container_name: java_spring_boot
+    image: spring-boot-app
+    ports:
+      - "8090:8080"
+    depends_on:
+      - rabbitmq
+    environment:
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=guest
+      - SPRING_RABBITMQ_PASSWORD=guest
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:4.0.9-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
