@@ -40,6 +40,10 @@
 - <https://select2.org/dropdown>
 - <https://select2.org/appearance>
 
+## Dockerize
+
+-  docker build -t spring-boot-app .
+
 ## Tips
 
 - Tilde(~) character: `OPTION + ^` and then space
