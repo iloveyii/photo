@@ -29,8 +29,8 @@
       <form>
         <!-- Name -->
         <div class="mb-3">
-          <label for="nick-name" class="form-label">Nick Name</label>
-          <input type="text" class="form-control" id="nick-name" placeholder="Enter your nick name...">
+          <label for="name" class="form-label">Nick Name</label>
+          <input type="text" name="name" class="form-control" id="name" placeholder="Enter your nick name...">
         </div>
 
         <div class="mb-3">
@@ -39,7 +39,12 @@
         </div>
 
         <div class="mb-3">
-          <button class="btn btn-success btn-lg px-5">Send</button>
+          <button id="btn-send" class="btn btn-success btn-lg px-5">Send</button>
+        </div>
+
+        <div class="mb-3">
+          <label for="messages" class="form-label">Messages:</label>
+          <div id="messages" class="w-100 form-control"></div>
         </div>
 
       </form>
@@ -47,16 +52,6 @@
 
   </div>
 </main>
-
-<script>
-  // Your WebSocket JavaScript code here
-  const socket = new SockJS('/ws');
-  const stompClient = Stomp.over(socket); // Now "Stomp" is defined!
-
-  stompClient.connect({}, (frame) => {
-      console.log('Connected: ' + frame);
-  });
-</script>
 
 <!-- Page-specific JavaScript -->
 <script layout:fragment="script" th:src="@{/js/message.js}" defer></script>

@@ -39,20 +39,8 @@
 
     <!-- SockJS (required for fallback transport) -->
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
-
     <!-- STOMP over WebSocket -->
     <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
-
-    <script defer>
-        // Your WebSocket JavaScript code here
-        /*const socket = new SockJS('/ws');
-        const stompClient = Stomp.over(socket); // Now "Stomp" is defined!
-
-        stompClient.connect({}, (frame) => {
-            console.log('Connected: ' + frame);
-        });
-        */
-    </script>
     <!-- Layout scripts placeholder -->
     <div layout:fragment="script"></div>
 </body>
