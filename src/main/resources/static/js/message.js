@@ -2,7 +2,7 @@
 
 (function(){
 
-const socket = new SockJS('https://spring.softhem.net/ws');
+const socket = new SockJS('wss://spring.softhem.net/ws');
 const stompClient = Stomp.over(socket);
 
 stompClient.connect({}, function(frame) {
