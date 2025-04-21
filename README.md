@@ -44,6 +44,10 @@
 
 -  docker build -t spring-boot-app .
 
+## Deploy
+
+- <https://spring.softhem.net/ws/info>
+
 ## Tips
 
 - Tilde(~) character: `OPTION + ^` and then space
