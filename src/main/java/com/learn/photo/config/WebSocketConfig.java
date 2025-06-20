@@ -19,7 +19,14 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws")
-                .setAllowedOrigins("*")
+                .setAllowedOriginPatterns(
+                        "http://localhost:*",       // Local dev
+                        "https://spring.softhem.net",  // Production domain
+                        "http://app:8080",     // Docker service name
+                        "http://192.168.*.*",       // Internal network
+                        "http://10.*.*.*",       // Internal network
+                        "http://172.*.*.*"      // Internal network
+                )
                 .withSockJS();
     }
 
