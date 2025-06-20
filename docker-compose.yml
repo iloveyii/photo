@@ -4,7 +4,7 @@ services:
     container_name: java_spring_boot
     image: spring-boot-app
     ports:
-      - "8090:8080"
+      - "8080:8080"
     depends_on:
       - rabbitmq
     environment:
