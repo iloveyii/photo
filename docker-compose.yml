@@ -1,11 +1,10 @@
 version: '3.8'
 services:
-  springapp:
+  app:
     container_name: java_spring_boot
-    # image: spring-boot-app
     build: .
     ports:
-      - "8090:8080"
+      - "8080:8080"
     depends_on:
       - rabbitmq
     environment:
@@ -13,9 +12,6 @@ services:
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest
       - SPRING_RABBITMQ_PASSWORD=guest
-      - SPRING_PROFILES_ACTIVE=production
-    networks:
-      - websocket-network
 
   rabbitmq:
     container_name: rabbitmq
@@ -27,8 +23,3 @@ services:
       - SPRING_RABBITMQ_HOST=rabbitmq
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
-    networks:
-      - websocket-network
-networks:
-    websocket-network:
-      driver: bridge
