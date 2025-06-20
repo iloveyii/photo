@@ -29,8 +29,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                         "https://spring.softhem.net:8080",  // Production domain
                         "http://192.168.*.*:8080",       // Internal network
                         "http://10.*.*.*:8080",       // Internal network
-                        "http://172.*.*.*:8080"      // Internal network,
-                        "http://127.*.*.*:8080"      // Internal network,
+                        "http://172.*.*.*:8080",      // Internal network,
+                        "http://127.*.*.*:8080",      // Internal network,
                         "http://127.*.*.*"      // Internal network,
 
                 )
