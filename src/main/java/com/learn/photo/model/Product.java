@@ -33,6 +33,13 @@ public class Product {
         this.name = name;
     }
 
+    public Product(String name, String description, Float price, Integer quantity) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     public Integer getId() {
         return id;
     }
