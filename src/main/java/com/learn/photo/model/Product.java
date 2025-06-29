@@ -56,4 +56,12 @@ public class Product {
     public String getDescription() {
         return this.description;
     }
+
+    public void setPrice(Float price) { this.price = price; }
+
+    public Float getPrice() { return  this.price; }
+
+    public void setQuantity(Integer quantity) { this.quantity = quantity; }
+
+    public Integer getQuantity() { return this.quantity; }
 }
