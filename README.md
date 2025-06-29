@@ -10,6 +10,7 @@
 - Make package `mvn clean package`
 - And cd to : `target\photo-0.0.1-SNAPSHOT.jar` which is `26MB`
 - Run jar file: `java -jar  photo-0.0.1-SNAPSHOT.jar`
+- Can also run: `mvn spring-boot:run`
 
 ## Endpoints
 
