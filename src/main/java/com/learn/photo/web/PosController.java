@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.*;
 
 @RestController
+@RequestMapping("/api/v1/products")
 public class PosController {
     private  final ProductService productService;
 
@@ -22,24 +23,24 @@ public class PosController {
         this.productService = productService;
     }
 
-    @GetMapping("/api/v1/products")
+    @GetMapping
     public Iterable<Product> get() {
         return productService.get();
     }
 
-    @GetMapping("/api/v1/products/{id}")
+    @GetMapping("/{id}")
     public Product get(@PathVariable Integer id) {
         Product product = productService.get(id);
         if(product == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return  product;
     }
 
-    @DeleteMapping("/api/v1/products/{id}")
+    @DeleteMapping("/{id}")
     public void remove(@PathVariable Integer id) {
         productService.remove(id);
     }
 
-    @PostMapping("/api/v1/products")
+    @PostMapping
     public Product create(@RequestBody @Valid Product product) {
         productService.create(product.getName(), product.getPrice(), product.getQuantity());
         return product;
