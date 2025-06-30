@@ -29,14 +29,14 @@ public class PosController {
     }
 
     @GetMapping("/{id}")
-    public Product get(@PathVariable Integer id) {
+    public Product get(@PathVariable Long id) {
         Product product = productService.get(id);
         if(product == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return  product;
     }
 
     @DeleteMapping("/{id}")
-    public void remove(@PathVariable Integer id) {
+    public void remove(@PathVariable Long id) {
         productService.remove(id);
     }
 

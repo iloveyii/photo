@@ -2,33 +2,24 @@ package com.learn.photo.dto;
 
 
 import com.learn.photo.model.OrderProduct;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class OrderProductDto {
-    private Integer productId;
+    private Long productId;
     private String productName;
     private Integer quantity;
     private Float priceAtPurchase;
 
     public OrderProductDto(OrderProduct orderProduct) {
-        this.productId = orderProduct.getProduct().getId();
-        this.productName = orderProduct.getProduct().getName();
+        this.productId = orderProduct.getProductId();
         this.quantity = orderProduct.getQuantity();
         this.priceAtPurchase = orderProduct.getPriceAtPurchase();
-    }
-
-    public OrderProductDto() {}
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
     }
 }

@@ -20,11 +20,11 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Product get(Integer id) {
+    public Product get(Long id) {
         return productRepository.findById(id).orElse(null);
     }
 
-    public void remove(Integer id) {
+    public void remove(Long id) {
 
         productRepository.deleteById(id);
     }

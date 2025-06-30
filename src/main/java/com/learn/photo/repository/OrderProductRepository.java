@@ -5,5 +5,4 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface OrderProductRepository extends CrudRepository<OrderProduct, Integer> {
-}
+public interface OrderProductRepository extends CrudRepository<OrderProduct, Long> {}

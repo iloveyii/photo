@@ -1,63 +1,40 @@
 package com.learn.photo.model;
 
-import javax.persistence.*;
+import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Entity
-@Table(name = "orders_products")
+import lombok.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table("ORDERS_PRODUCTS")
 public class OrderProduct {
-    public OrderProduct(Order order, Product product, Integer quantity, Float price) {
-    }
+    @Id
+    private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("orderId")
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @Column("order_id")
+    private Long orderId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("productId")
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @Column("product_id")
+    private Long productId;
 
-    @Column(name = "quantity")  // Using JPA @Column
     private Integer quantity;
 
-    @Column(name = "price_at_purchase")
+    @Column("price_at_purchase")
     private Float priceAtPurchase;
 
-    // Constructors, getters, setters...
+    @Transient
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Product product;
 
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public Float getPriceAtPurchase() {
-        return priceAtPurchase;
-    }
-
-    public void setPriceAtPurchase(Float priceAtPurchase) {
-        this.priceAtPurchase = priceAtPurchase;
-    }
-
-
+    @Transient
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Order order;
 }

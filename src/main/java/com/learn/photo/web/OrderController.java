@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -33,21 +34,25 @@ public class OrderController {
 //                .toList()
 //                .collect(Collectors.toList());
 
-        List<OrderDto> orders =  StreamSupport.stream( orderService.getAllOrders().spliterator(), false)
-                .map(OrderDto::new)
-                .collect(Collectors.toList());
-        return ResponseEntity.ok(orders);
+//        List<OrderDto> orders =  StreamSupport.stream( orderService.getAllOrders().spliterator(), false)
+//                .map(OrderDto::new)
+//                .collect(Collectors.toList());
+        Iterable<Order> orders = orderService.getAllOrders();
+        System.out.println(orders);
+        List<OrderDto> orders2 = new ArrayList<>();
+        return ResponseEntity.ok(orders2);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<OrderDto> getOrderById(@PathVariable Integer id) {
+    public OrderDto getOrderById(@PathVariable Long id) {
         Order order = orderService.getOrderById(id);
-        return ResponseEntity.ok(new OrderDto(order));
+        return orderService.getOrderDto(id);
+        // return ResponseEntity.ok(new OrderDto(order));
     }
 
     @PatchMapping("/{id}/status")
     public ResponseEntity<OrderDto> updateOrderStatus(
-            @PathVariable Integer id,
+            @PathVariable Long id,
             @RequestParam String status) {
         Order order = orderService.updateOrderStatus(id, status);
         return ResponseEntity.ok(new OrderDto(order));
